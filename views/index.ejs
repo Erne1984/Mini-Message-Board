@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Mensage Board</title>
 </head>
+
 <body>
 
-    <h2>Mensagens</h2>
+    <main>
 
-    <ul>
-        <% for(let i = 0; i < messages.length; i++) { %>
+        <h2>Mensagens</h2>
 
-        <li> <%= messages[i].text %> </li>
+        <ul>
+            <% for(let i=0; i < messages.length; i++) { %>
 
-        <% } %>
-        
-    </ul>
+                <li>
+                    <%= messages[i].text %>
+                </li>
 
-    <form method="post" action="/new">
+                <% } %>
 
-        <input type="text" name="msg" id="msg" placeholder="mensagem">
-        
-        <input type="text" name="author" id="author" placeholder="author">
+        </ul>
 
-        <button id="btn-enviar">Enviar</button>
+        <form method="post" action="/new">
 
-    </form>
+            <input type="text" name="msg" id="msg" placeholder="mensagem">
+
+            <input type="text" name="author" id="author" placeholder="author">
+
+            <button id="btn-enviar">Enviar</button>
+
+        </form>
+
+    </main>
 
 </body>
+
 </html>
