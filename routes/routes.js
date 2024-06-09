@@ -4,22 +4,15 @@ const routes = express.Router();
 
 const path = require("path");
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
+const Message = require("../models/Message")
 
-routes.get("/", (req, res, next) => {
-  res.render("index", { messages });
-  //res.sendFile(path.join)
+routes.get("/", async (req, res, next) => {
+  try{
+    const messages = await Message.find();
+    res.render("index", { messages });
+  }catch(err){
+    res.status(500).send({ error: err.message });
+  } 
 })
 
 routes.post("/new", (req, res, next) => {

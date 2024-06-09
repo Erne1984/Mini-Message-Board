@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const connectCrudFuncionarios = () => {
+const connectDb = () => {
     mongoose.connect(
-        "mongodb+srv://root:admin@crudfuncionario.ejji61w.mongodb.net/?retryWrites=true&w=majority&appName=crudFuncionario"
+        "mongodb+srv://admin:root@cluster0.6zdebys.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     ).then(() => {
         console.log("MongoDb Atlas CONECTADO!")
     }).catch((err) => console.log(err))
 }
 
-module.exports = connectCrudFuncionarios;
+module.exports = connectDb;
